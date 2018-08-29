@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: MaP0Lj4nNSBO8TouXBTgQgYwiuWsgmtrxBJMVUxiRWYGU8SXl8n5Tyt/eVDvA6LckyJE8cAaOg+pBpLSx5GUBRmDxHwH7jOvAPBJNJ0Upa/NGSffe6/+t1+OeDccpH3vC1LojZ9RIsYsc8F8U0SEwJ8GFe6PJ40qC9o7xQMpwa8PCi7PDgKg70O6Q0ywd+qtWgBIawmzIcMLxfeC7Lg8M77zY5jnx/byGqCk4zdj+n2ZbQWhSOd0azd7IIgbYEtWdWOmtnV1SMZyGD4p0OzfDJMJrnHdqL6QiC8DSPrCaHnj4u+3Qhik/lvram/kCtHh7J1gkthyIXcZGCrI6jgX1e8GysXFCCAYuw7e6dwkBzm5OH4bF8KEic7mjdz5hSreoBW0ca/QyLeR9XRQbSpcJGMotRZ9iisX/7emEcpGj9h+ndI+EsWO/FQZi16ks5lVWFHJPScgYTZDcoFdeT+SpcWNojrmq5x0zdgVUE3OGhWVI2/RrCrawBGI5HuCwTwV3Su55mylMD1NzvYwqXgTS/XkYyZb+TmJzUmt4v8izedwdIHNMmZBykn3Wdv+rGfH6fXvssAFHZsjSiD11LFu63uZQPQsFULpO22MvDIzmpWiBzI+lBb2VFFnSb9No+lj8y3MsrXnJcgU4WMT9dWE5d7ZBaKClSSQMbvHuJISFI4=
+  app: https://hidden-hamlet-51955.herokuapp.com/
+  on:
+    repo: bhasshaw/carlog
