@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const {Service} = require('./models');
 
@@ -8,13 +9,12 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
+const jwtAuth = passport.authenticate('jwt', { session: false });
+
+
 // GET
 
-router.get('/hello', (req, res) => {
-    res.status(200).send('hello world');
-});
-
-router.get('/posts', (req, res) => {
+router.get('/posts', jwtAuth, (req, res) => {
     Service
       .find()
       .then(posts => {
@@ -65,5 +65,7 @@ router.delete('/posts/:id', (req, res) => {
             res.status(500).json({ error: 'Something went wrong' });
         });
 });
+
+
 
 module.exports = {router};
