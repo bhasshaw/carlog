@@ -54,4 +54,16 @@ router.post('/posts', (req, res) => {
 
 });
 
+router.delete('/posts/:id', (req, res) => {
+    Service
+        .findByIdAndRemove(req.params.id)
+        .then(() => {
+            res.status(204).end()
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'Something went wrong' });
+        });
+});
+
 module.exports = {router};
