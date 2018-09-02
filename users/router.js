@@ -9,7 +9,7 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router.post('/', jsonParser, (req, res) => {
-  const requiredFields = ['username', 'password'];
+  const requiredFields = ['userName', 'password', 'year', 'make', 'model'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
@@ -21,7 +21,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const stringFields = ['username', 'password', 'firstName', 'lastName'];
+  const stringFields = ['userName', 'password', 'year', 'make', 'model'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -35,7 +35,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const explicityTrimmedFields = ['username', 'password'];
+  const explicityTrimmedFields = ['userName', 'password'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
   );
@@ -50,12 +50,22 @@ router.post('/', jsonParser, (req, res) => {
   }
 
   const sizedFields = {
-    username: {
+    userName: {
       min: 1
     },
     password: {
       min: 10,
       max: 72
+    },
+    year: {
+      min: 1,
+      max: 4
+    },
+    make: {
+      min: 1
+    },
+    model: {
+      min: 1
     }
   };
   const tooSmallField = Object.keys(sizedFields).find(
@@ -82,9 +92,8 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  let {username, password, firstName = '', lastName = ''} = req.body;
-  firstName = firstName.trim();
-  lastName = lastName.trim();
+  let {userName, password, year, make, model} = req.body;
+  userName = userName.trim();
 
   return User.find({username})
     .count()
@@ -101,10 +110,11 @@ router.post('/', jsonParser, (req, res) => {
     })
     .then(hash => {
       return User.create({
-        username,
+        userName,
         password: hash,
-        firstName,
-        lastName
+        year,
+        make,
+        model
       });
     })
     .then(user => {
