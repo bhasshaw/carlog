@@ -3,26 +3,29 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CarLog</title>
         <link rel="stylesheet" type="text/css" href="main.css">
         <link rel="stylesheet" type="text/css" href="float-grid.css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </head>
     <body>
-        <header>
+        <header role="banner">
             <h1>CarLog</h1>
         </header>
-        <main>
+        <main role="main">
             <form action="login">
                 <h2>Login</h2>
                 <section>
-                    <label for="email">Email: </label>
+                    <label for="email">Email</label>
                     <input type="text">
-                    <label for="password">Password: </label>
+                    <label for="password">Password</label>
                     <input type="text">
                     <button>Submit</button>
                 </section>
             </form>
-            <h4>Don't have an account? <a href="signup.html">Sign Up</a></h4>
+            <div>
+                <h4>Don't have an account? <a href="signup.html">Sign Up</a></h4>
+            </div>
         </main>
     </body>
 </html>
