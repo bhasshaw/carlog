@@ -9,7 +9,7 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router.post('/', jsonParser, (req, res) => {
-  const requiredFields = ['userName', 'password', 'year', 'make', 'model'];
+  const requiredFields = ['username', 'password', 'year', 'make', 'model'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
   if (missingField) {
@@ -21,7 +21,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const stringFields = ['userName', 'password', 'year', 'make', 'model'];
+  const stringFields = ['username', 'password', 'year', 'make', 'model'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -35,7 +35,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const explicityTrimmedFields = ['userName', 'password'];
+  const explicityTrimmedFields = ['username', 'password'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
   );
@@ -50,7 +50,7 @@ router.post('/', jsonParser, (req, res) => {
   }
 
   const sizedFields = {
-    userName: {
+    username: {
       min: 1
     },
     password: {
@@ -92,8 +92,8 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  let {userName, password, year, make, model} = req.body;
-  userName = userName.trim();
+  let {username, password, year, make, model} = req.body;
+  username = username.trim();
 
   return User.find({username})
     .count()
@@ -110,7 +110,7 @@ router.post('/', jsonParser, (req, res) => {
     })
     .then(hash => {
       return User.create({
-        userName,
+        username,
         password: hash,
         year,
         make,

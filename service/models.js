@@ -4,10 +4,22 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const serviceSchema = mongoose.Schema({
-    date: Date,
-    description: String,
-    miles: Number,
-    cost: Number,
+    date: {
+        type: Date,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    miles: {
+        type: Number,
+        required: true
+    },
+    cost: {
+        type: Number,
+        required: true
+    }
 });
 
 serviceSchema.methods.serialize = function() {
