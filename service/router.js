@@ -26,7 +26,7 @@ router.get('/posts', jwtAuth, (req, res) => {
       });
   });
   
-  // POST
+// POST
   
 router.post('/posts', (req, res) => {
     const requiredFields = ['date', 'description', 'miles', 'cost'];

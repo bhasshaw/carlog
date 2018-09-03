@@ -2,6 +2,11 @@
 
 // SIGNUP
 
+function handleSignup () {
+    signupListener();
+    signup();
+};
+
 function signupListener () {
     $('#signup-submit-btn').click(function(event) {
         event.preventDefault();
@@ -24,3 +29,5 @@ function signup() {
         contentType: 'application/json'
     })
 };
+
+$(handleSignup());
