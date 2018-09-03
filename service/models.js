@@ -32,6 +32,6 @@ serviceSchema.methods.serialize = function() {
     };
 };
 
-const Service = mongoose.model('LogPost', serviceSchema);
+const Service = mongoose.model('Service', serviceSchema);
 
 module.exports = {Service};
