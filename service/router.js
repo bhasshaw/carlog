@@ -7,7 +7,7 @@ const {Service} = require('./models');
 
 const router = express.Router();
 
-const jsonParser = bodyParser.json();
+app.use(express.json());
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
@@ -73,15 +73,17 @@ router.put('/posts/:id', jwtAuth, (req, res) => {
     }
     console.log(`Updating service item \`${req.params.id}\``);
 
-    Service.update({
-        id: req.params.id,
+    const toUpdate = {
         date: req.body.date,
         description: req.body.description,
         miles: req.body.miles,
         cost: req.body.cost
-  });
+    };
 
-  res.status(204).end();
+    Service
+        .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+        .then(updatedPost => res.status(204).end())
+        .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
 // DELETE
