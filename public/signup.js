@@ -4,7 +4,6 @@
 
 function handleSignup () {
     signupListener();
-    signup();
 };
 
 function signupListener () {
@@ -16,11 +15,11 @@ function signupListener () {
 
 function signup () {
     let signupInfo = {
-        username = $('#signup-username').val(),
-        password = $('#signup-password').val(),
-        year = $('#signup-year').val(),
-        make = $('#signup-make').val(),
-        model = $('#signup-model').val()
+        username: $('#signup-username').val(),
+        password: $('#signup-password').val(),
+        year: $('#signup-year').val(),
+        make: $('#signup-make').val(),
+        model: $('#signup-model').val()
     }
     $.ajax({
         url: '/api/users',

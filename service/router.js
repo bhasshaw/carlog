@@ -1,13 +1,11 @@
 'use strict';
 const express = require('express');
-const bodyParser = require('body-parser');
+
 const passport = require('passport');
 
 const {Service} = require('./models');
 
 const router = express.Router();
-
-app.use(express.json());
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 

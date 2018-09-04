@@ -1,6 +1,9 @@
 'use strict';
 
 // LOGIN
+function handleLogIn () {
+    logInListener();
+};
 
 function logInListener () {
     $('#login-submit-btn').click(function(event) {
@@ -27,3 +30,6 @@ function logInRequest (username, password) {
         contentType: 'application/json'
     })
 };
+
+$(handleLogIn());
+

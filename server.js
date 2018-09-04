@@ -16,7 +16,7 @@ const { PORT, DATABASE_URL } = require('./config');
 const app = express();
 
 app.use(express.json());
-app.use(express.static('../public'));
+app.use(express.static('./public'));
 app.use(morgan('common'));
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
