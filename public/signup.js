@@ -14,7 +14,7 @@ function signupListener () {
     });
 };
 
-function signup() {
+function signup () {
     let signupInfo = {
         username = $('#signup-username').val(),
         password = $('#signup-password').val(),
