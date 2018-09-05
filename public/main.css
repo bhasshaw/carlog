@@ -21,6 +21,7 @@
     .sidebar {
         float: left;
         width: 25%;
+        max-height: 250px;
     }
   
     .content {
