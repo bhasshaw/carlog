@@ -5,38 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>CarLog | Sign Up</title>
         <link rel="stylesheet" type="text/css" href="main.css">
-        <link rel="stylesheet" type="text/css" href="float-grid.css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </head>
     <body>
-        <header role="banner">
-            <h1>CarLog</h1>
-        </header>
-        <main role="main">
-            <form id="signup-form" action="signup">
-                <h2>Sign Up</h2>
-                <section>
-                    <h3>Create Login</h3>
-                    <label for="username">Username</label>
-                    <input id="signup-username" type="text">
-                    <label for="password">Password</label>
-                    <input id="signup-password" type="text">
-                </section>
-                <section>
-                    <h3>Your Vehicle Information</h3>
-                    <label for="year">Year</label>
-                    <input id="signup-year" type="text">
-                    <label for="make">Make</label>
-                    <input id="signup-make" type="text">
-                    <label for="model">Model</label>
-                    <input id="signup-model" type="text">
+        <div class="wrapper">
+            <header class="header">CarLog</header>
+            <aside class="sidebar">
+                <p>Already have an account? <a href="index.html">Login</a></p>
+            </aside>
+            <article class="content">
+                <form id="signup-form" action="signup">
+                    <section class="information">
+                        <h3>Create Login</h3>
+                        <label for="username">Username</label>
+                        <input id="signup-username" type="text">
+                        <label for="password">Password</label>
+                        <input id="signup-password" type="text">
+                    </section>
+                    <section class="information">
+                        <h3>Vehicle Info</h3>
+                        <label for="year">Year</label>
+                        <input id="signup-year" type="text">
+                        <label for="make">Make</label>
+                        <input id="signup-make" type="text">
+                        <label for="model">Model</label>
+                        <input id="signup-model" type="text">
+                    </section>
                     <button id="signup-submit-btn">Submit</button>
-                </section>
-            </form>
-            <div>
-                <h4>Already have an account? <a href="index.html">Login</a></h4>
-            </div>
-        </main>
-        <script src="signup.js"></script>
+                </form>
+            </article>
+            <footer class="footer">CarLog created by Bryce Hasshaw</footer>
+            <script src="signup.js"></script>
+        </div>
     </body>
 </html>
