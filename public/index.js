@@ -29,6 +29,17 @@ function logInRequest (username, password) {
         data: JSON.stringify(logInInfo),
         contentType: 'application/json'
     })
+    .done(token => {
+        localStorage.setItem('authToken', token.authToken);
+        localStorage.setItem('username', username);
+        window.location.href = 'home.html';
+    })
+    .fail(function(err) {
+        console.log('error')
+        if (err.status === 401) {
+            $('.error').html('Username or Password is incorrect');
+        }
+    })
 };
 
 $(handleLogIn());
