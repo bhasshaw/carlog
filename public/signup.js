@@ -27,6 +27,12 @@ function signup () {
         data: JSON.stringify(signupInfo),
         contentType: 'application/json'
     })
+    .done(() => {
+        window.location.href = 'index.html';
+    })
+    .fail( err => {
+        console.log('error: ', err.message);
+    })
 };
 
 $(handleSignup());
