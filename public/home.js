@@ -18,8 +18,8 @@ function createNewBtnTemplate () {
             <input id="log-date" type="text">
             <label for="miles">Milage</label>
             <input id="log-miles" type="text">
-            <label for="price">Price</label>
-            <input id="log-price" type="text">
+            <label for="cost">Cost</label>
+            <input id="log-cost" type="text">
             <label for="description">Desribe Service</label>
             <input id="log-description" type="text">
             <button id="service-form-btn">Submit</button>
@@ -51,7 +51,7 @@ function submitLog () {
     let logInfo = {
         date: $('#log-date').val(),
         miles: $('#log-miles').val(),
-        price: $('#log-price').val(),
+        cost: $('#log-cost').val(),
         descripton: $('#log-description').val()
     }
     $.ajax({
