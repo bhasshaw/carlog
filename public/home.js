@@ -22,7 +22,7 @@ function createNewBtnTemplate () {
             <input id="log-cost" type="text">
             <label for="description">Desribe Service</label>
             <input id="log-description" type="text">
-            <button id="service-form-btn">Submit</button>
+            <button id="service-form-btn" type="submit">Submit</button>
         </form>
     `
 };
@@ -41,7 +41,7 @@ function handleSubmitLog () {
 };
 
 function submitLogListener () {
-    $('#service-form-btn').click(function(event) {
+    $(document).on('submit','#service-form', function(event) {
         event.preventDefault();
         submitLog();
     });
