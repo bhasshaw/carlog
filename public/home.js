@@ -15,13 +15,13 @@ function createNewBtnTemplate () {
     return `
         <form id="service-form">
             <label for="date">Date of Service</label>
-            <input id="log-date" type="text">
+            <input id="log-date" type="date">
+            <label for="description">Describe Service</label>
+            <input id="log-description" type="text">
             <label for="miles">Milage</label>
             <input id="log-miles" type="text">
             <label for="cost">Cost</label>
             <input id="log-cost" type="text">
-            <label for="description">Desribe Service</label>
-            <input id="log-description" type="text">
             <button id="service-form-btn" type="submit">Submit</button>
         </form>
     `
@@ -50,16 +50,22 @@ function submitLogListener () {
 function submitLog () {
     let logInfo = {
         date: $('#log-date').val(),
+        description: $('#log-description').val(),
         miles: $('#log-miles').val(),
-        cost: $('#log-cost').val(),
-        descripton: $('#log-description').val()
+        cost: $('#log-cost').val()
     }
+    console.log(logInfo);
     $.ajax({
-        url: '/api/service/posts',
+        url: 'api/service/posts',
         type: 'POST',
         data: JSON.stringify(logInfo),
         contentType: 'application/json'
-        // STILL NOT WORKING
+    })
+    .done(() => {
+        window.location.href = 'home.html';
+    })
+    .fail( err => {
+        console.log('error: ', err.message);
     })
 };
 
