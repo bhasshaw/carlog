@@ -2,8 +2,32 @@
 
 function handlePage () {
     handleCreateNewButton();
-    handleSubmitLog();
+    getLogData();
 };
+
+// LANDING PAGE
+
+// function getLogData () {
+//     let token = localStorage.getItem('token');
+//     $.ajax({
+//         url: '/api/service/posts',
+//         type: 'GET',
+//         headers: { Authorization: `bearer ${token}` },
+//         contentType: 'application/json'  
+//     })
+//     displayResults();
+// };
+
+// function displayResults (info) {
+//     if (info) {
+//         $.each(info, function(index, value) {
+//             let html = `
+//                 <h3>${value.miles}</h3>
+//             `
+//             $('.record-log').append(html);
+//         })
+//     }
+// };
 
 // CREATE NEW RECORD
 
@@ -35,10 +59,6 @@ function createNewBtnListener () {
 };
 
 // SUBMIT LOG
-
-function handleSubmitLog () {
-    submitLogListener();
-};
 
 function submitLogListener () {
     $(document).on('submit','#service-form', function(event) {
