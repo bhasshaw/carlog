@@ -7,27 +7,27 @@ function handlePage () {
 
 // LANDING PAGE
 
-// function getLogData () {
-//     let token = localStorage.getItem('token');
-//     $.ajax({
-//         url: '/api/service/posts',
-//         type: 'GET',
-//         headers: { Authorization: `bearer ${token}` },
-//         contentType: 'application/json'  
-//     })
-//     displayResults();
-// };
+function getLogData () {
+    let token = localStorage.getItem('token');
+    $.ajax({
+        url: '/api/service/posts',
+        type: 'GET',
+        headers: { Authorization: `bearer ${token}` },
+        contentType: 'application/json'  
+    })
+    displayResults();
+};
 
-// function displayResults (info) {
-//     if (info) {
-//         $.each(info, function(index, value) {
-//             let html = `
-//                 <h3>${value.miles}</h3>
-//             `
-//             $('.record-log').append(html);
-//         })
-//     }
-// };
+function displayResults (info) {
+    if (info) {
+        $.each(info, function(index, value) {
+            let html = `
+                <h3>${value.miles}</h3>
+            `
+            $('.record-log').append(html);
+        })
+    }
+};
 
 // CREATE NEW RECORD
 
