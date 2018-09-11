@@ -14,7 +14,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 router.get('/posts', jwtAuth, (req, res) => {
     Service
-      .find()
+      .find().sort({'date': -1})
       .then(posts => {
         res.json(posts.map(post => post.serialize()));
       })

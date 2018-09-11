@@ -3,30 +3,33 @@
 function handlePage () {
     handleCreateNewButton();
     submitLogListener();
-    // getLogResults();
+    getLogResults();
 };
 
 // LANDING PAGE
 
-// function getLogResults () {
-//     let token = localStorage.getItem('token');
-//     $.ajax({
-//         url: '/api/service/posts',
-//         type: 'GET',
-//         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
-//         contentType: 'application/json'  
-//     })
-//     displayResults();
-// };
+function getLogResults () {
+    // let token = localStorage.getItem('token');
+    $.ajax({
+        url: '/api/service/posts',
+        type: 'GET',
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
+        contentType: 'application/json'  
+    })
+    .done(response => {
+        displayResults(response)
+    })
+};
 
-// function displayResults (info) {
-//     $.each(info, function(index, value) {
-//         let html = `
-//             <h3>${value.miles}</h3>
-//         `
-//         $('.record-log').append(html);
-//     })
-// };
+function displayResults (info) {
+    $.each(info, function(index, value) {
+        let html = `
+            <h3>${value.date}</h3>
+            <h3>${value.miles}</h3>
+        `
+        $('.record-log').append(html);
+    })
+};
 
 // CREATE NEW RECORD
 
