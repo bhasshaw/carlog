@@ -2,32 +2,31 @@
 
 function handlePage () {
     handleCreateNewButton();
-    getLogData();
+    submitLogListener();
+    // getLogResults();
 };
 
 // LANDING PAGE
 
-function getLogData () {
-    let token = localStorage.getItem('token');
-    $.ajax({
-        url: '/api/service/posts',
-        type: 'GET',
-        headers: { Authorization: `bearer ${token}` },
-        contentType: 'application/json'  
-    })
-    displayResults();
-};
+// function getLogResults () {
+//     let token = localStorage.getItem('token');
+//     $.ajax({
+//         url: '/api/service/posts',
+//         type: 'GET',
+//         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
+//         contentType: 'application/json'  
+//     })
+//     displayResults();
+// };
 
-function displayResults (info) {
-    if (info) {
-        $.each(info, function(index, value) {
-            let html = `
-                <h3>${value.miles}</h3>
-            `
-            $('.record-log').append(html);
-        })
-    }
-};
+// function displayResults (info) {
+//     $.each(info, function(index, value) {
+//         let html = `
+//             <h3>${value.miles}</h3>
+//         `
+//         $('.record-log').append(html);
+//     })
+// };
 
 // CREATE NEW RECORD
 
@@ -42,7 +41,7 @@ function createNewBtnTemplate () {
             <input id="log-date" type="date">
             <label for="description">Describe Service</label>
             <input id="log-description" type="text">
-            <label for="miles">Milage</label>
+            <label for="miles">Mileage</label>
             <input id="log-miles" type="text">
             <label for="cost">Cost</label>
             <input id="log-cost" type="text">
