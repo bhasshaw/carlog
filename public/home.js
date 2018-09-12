@@ -9,7 +9,6 @@ function handlePage () {
 // LANDING PAGE
 
 function getLogResults () {
-    // let token = localStorage.getItem('token');
     $.ajax({
         url: '/api/service/posts',
         type: 'GET',
@@ -24,8 +23,12 @@ function getLogResults () {
 function displayResults (info) {
     $.each(info, function(index, value) {
         let html = `
-            <h3>${value.date}</h3>
-            <h3>${value.miles}</h3>
+            <ul>
+                <li>${value.date}</li>
+                <li>${value.miles}</li>
+                <li>${value.description}</li>
+                <li>${value.cost}</li>
+            </ul>
         `
         $('.record-log').append(html);
     })

@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const serviceSchema = mongoose.Schema({
+    user: {
+        type: String
+    },
     date: {
         type: Date,
         required: true

@@ -12,17 +12,17 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // GET
 
-router.get('/posts', jwtAuth, (req, res) => {
+router.get('/:user', jwtAuth, (req, res) => {
     Service
-      .find().sort({'date': -1})
-      .then(posts => {
-        res.json(posts.map(post => post.serialize()));
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).json({ error: 'Something went wrong' });
-      });
-  });
+        .find({user: req.params.user}).sort({'date': -1})
+        .then(posts => {
+            res.json(posts.map(post => post.serialize()));
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'Something went wrong' });
+        });
+});
   
 // POST
   
@@ -42,7 +42,8 @@ router.post('/posts', (req, res) => {
             date: req.body.date,
             description: req.body.description,
             miles: req.body.miles,
-            cost: req.body.cost 
+            cost: req.body.cost,
+            user: req.body.user
         })
         .then( serviceLog => res.status(201).json(serviceLog.serialize()))
         .catch(err => {
@@ -88,14 +89,14 @@ router.put('/posts/:id', jwtAuth, (req, res) => {
 
 router.delete('/posts/:id', (req, res) => {
   Service
-      .findByIdAndRemove(req.params.id)
-      .then(() => {
-          res.status(204).end()
-      })
-      .catch(err => {
-          console.error(err);
-          res.status(500).json({ error: 'Something went wrong' });
-      });
+        .findByIdAndRemove(req.params.id)
+        .then(() => {
+            res.status(204).end()
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'Something went wrong' });
+        });
 });
 
 module.exports = {router};
