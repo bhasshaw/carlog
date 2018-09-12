@@ -23,6 +23,16 @@ router.get('/:username', jwtAuth, (req, res) => {
             res.status(500).json({ error: 'Something went wrong' });
         });
 });
+
+router.get('/:id',jwtAuth, (req, res) => {
+    Service
+        .findById(req.params.id)
+        .then(post => res.json(post.serialize()))
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'Something went wrong' });
+        });
+});
   
 // POST
   
