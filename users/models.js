@@ -34,7 +34,8 @@ UserSchema.methods.serialize = function() {
     username: this.username,
     year: this.year,
     make: this.make,
-    model: this.model
+    model: this.model,
+    id: this._id
   };
 };
 

@@ -12,9 +12,9 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // GET
 
-router.get('/:user', jwtAuth, (req, res) => {
+router.get('/:username', jwtAuth, (req, res) => {
     Service
-        .find({user: req.params.user}).sort({'date': -1})
+        .find({username: req.params.username}).sort({'date': -1})
         .then(posts => {
             res.json(posts.map(post => post.serialize()));
         })
@@ -43,7 +43,7 @@ router.post('/posts', (req, res) => {
             description: req.body.description,
             miles: req.body.miles,
             cost: req.body.cost,
-            user: req.body.user
+            username: req.body.username
         })
         .then( serviceLog => res.status(201).json(serviceLog.serialize()))
         .catch(err => {
