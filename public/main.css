@@ -4,8 +4,8 @@
   
   body {
         margin: 40px;
-        font-family: 'Open Sans', 'sans-serif';
-        background-color: rgb(185, 183, 183);
+        font-family: 'Ubuntu', sans-serif;
+        background-color: rgb(243, 123, 67);
         color: black;
   }
   
@@ -13,20 +13,21 @@
         max-width: 1080px;
         margin: 0 20px;
         display: grid;
-        grid-gap: 10px;
+        grid-gap: 2px;
+
   }
   
   @media screen and (min-width: 500px) {
   
     .sidebar {
         float: left;
-        width: 25%;
-        max-height: 250px;
+        width: 50%;
+        /* max-height: 250px; */
     }
   
     .content {
         float: right;
-        width: 75%;
+        width: 50%;
     }
 
     .information {
@@ -39,22 +40,15 @@
         grid-template-columns: 1fr 3fr;
     }
     
-    .header {
+    .header, .footer {
         grid-column: 1 / -1;
         clear: both;
     }
-
-    .footer {
-        grid-column: 1 / -1;
-        clear: both; 
-    }
-  
   }
   
   .wrapper > * {
         background-color: white;
         color: black;
-        border-radius: 5px;
         padding: 20px;
         font-size: 150%;
         margin-bottom: 10px;
@@ -71,24 +65,86 @@ input {
     display: block;
 }
 
-#login-username {
-    width: 100%;
-}
-
-#login-password {
-    width: 100%;
-}
-
-#login-submit-btn {
-    margin-top: 7px;
-    width: 50%;
-    display: block;
-}
-
 .footer {
     font-size: 15px;
 }
 
-.header {
-    font-size: 30px;
+.header h1 {
+    font-size: 40px;
+    margin: 5px 0px;
+}
+
+.sidebar {
+    padding-top: 5px;
+}
+
+.sidebar h2 {
+    font-size: 25px;
+}
+
+#login-form input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 14px;
+}
+
+#login-form input:focus {
+    outline: none;
+}
+
+#login-form button {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+}
+
+#login-form button:hover {
+    cursor: pointer;
+}
+
+.content p {
+    font-size: 20px;
+}
+
+.content h4 {
+    font-size: 20px;
+    margin-top: 80px;
+}
+
+.content a {
+    color: rgb(243, 123, 67);
+}
+
+.information label {
+    font-size: 20px;
+}
+
+.information input {
+    width: 85%;
+    height: 30px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 14px;
+}
+
+.information input:focus {
+    outline: none;
+}
+
+#signup-submit-btn {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+}
+
+#signup-submit-btn:hover {
+    cursor: pointer;
 }
