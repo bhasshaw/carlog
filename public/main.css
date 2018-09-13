@@ -95,7 +95,7 @@ input {
     outline: none;
 }
 
-#login-form button {
+#login-form button, #create-new-btn {
     width: 100%;
     height: 30px;
     margin-top: 10px;
@@ -103,8 +103,14 @@ input {
     color: white;
 }
 
-#login-form button:hover {
+#login-form button:hover, #create-new-btn:hover, #signup-submit-btn:hover, #service-form-btn:hover {
+    background-color: rgb(53, 52, 52);
     cursor: pointer;
+}
+
+#login-form button:focus, #create-new-btn:focus, #signup-submit-btn:focus, #service-form-btn:focus {
+    background-color: rgb(243, 123, 67);
+    outline: none;
 }
 
 .content p {
@@ -116,7 +122,7 @@ input {
     margin-top: 80px;
 }
 
-.content a {
+.content a, .sidebar a {
     color: rgb(243, 123, 67);
 }
 
@@ -138,13 +144,30 @@ input {
 }
 
 #signup-submit-btn {
-    width: 100%;
+    width: 93%;
     height: 30px;
     margin-top: 10px;
     background-color: black;
     color: white;
 }
 
-#signup-submit-btn:hover {
-    cursor: pointer;
+#service-form input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 14px;
+}
+
+#service-form input:focus {
+    outline: none;
+}
+
+#service-form-btn {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
 }
