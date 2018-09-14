@@ -125,17 +125,17 @@ function deleteLog (id) {
 
 // UPDATE RECORD
 
-function createUpdateTemplate (record) {
+function createUpdateTemplate (value) {
     return `
         <form id="service-form">
             <label for="date">Date of Service</label>
-            <input id="log-date" type="date" value="${record.date}">
+            <input id="log-date" type="date" value="${value.date}">
             <label for="description">Describe Service</label>
-            <input id="log-description" type="text" value="${record.description}">
+            <input id="log-description" type="text" value="${value.description}">
             <label for="miles">Mileage</label>
-            <input id="log-miles" type="text" value="${record.miles}">
+            <input id="log-miles" type="text" value="${value.miles}">
             <label for="cost">Cost</label>
-            <input id="log-cost" type="text" value="${record.cost}">
+            <input id="log-cost" type="text" value="${value.cost}">
             <button class="submit-update-btn">Submit</button>
         </form>
     `
@@ -145,8 +145,6 @@ function updateBtnListener () {
     $(document).on('click','.record-log-update-btn', function(event) {
         let id = $(this).attr('data');
         getLog(id);
-        // $('.record-log').html(createUpdateTemplate);
-        // updateLog(id);
     });
 };
 
@@ -157,8 +155,8 @@ function getLog (id) {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
         contentType: 'application/json'  
     })
-    .done(() => {
-        $('.record-log').html(createUpdateTemplate);    
+    .done( value => {
+        $('.record-log').html(createUpdateTemplate(value));
     })
     .fail( err => {
         console.log('error: ', err.message);
