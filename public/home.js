@@ -6,6 +6,7 @@ function handlePage () {
     getLogResults();
     deleteLogListener();
     updateBtnListener();
+    updateLogListener();
 };
 
 // LANDING PAGE
@@ -136,7 +137,7 @@ function createUpdateTemplate (value) {
             <input id="log-miles" type="text" value="${value.miles}">
             <label for="cost">Cost</label>
             <input id="log-cost" type="text" value="${value.cost}">
-            <button class="submit-update-btn">Submit</button>
+            <button class="submit-update-btn" type="submit">Submit</button>
         </form>
     `
 };
@@ -163,6 +164,13 @@ function getLog (id) {
     })
 };
 
+function updateLogListener () {
+    $(document).on('submit','.submit-update-btn', function(event) {
+        event.preventDefault();
+        updateLog();
+    });
+};
+
 
 function udpateLog (id) {
     let logInfo = {
@@ -174,14 +182,14 @@ function udpateLog (id) {
     }
 
     $.ajax({
-        url: 'api/service/posts/'+ id,
+        url: 'api/service/post/'+ id,
         type: 'PUT',
         data: JSON.stringify(logInfo),
         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
         contentType: 'application/json'          
     })
     .done(() => {
-        
+        window.location.href = 'home.html';
     })
     .fail( err => {
         console.log('error: ', err.message);
