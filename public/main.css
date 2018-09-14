@@ -95,7 +95,7 @@ input {
     outline: none;
 }
 
-#login-form button, #create-new-btn {
+#login-form button, #create-new-btn, .submit-update-btn {
     width: 100%;
     height: 30px;
     margin-top: 10px;
@@ -103,12 +103,12 @@ input {
     color: white;
 }
 
-#login-form button:hover, #create-new-btn:hover, #signup-submit-btn:hover, #service-form-btn:hover, .record-log-update-btn:hover, .record-log-delete-btn:hover {
+#login-form button:hover, #create-new-btn:hover, #signup-submit-btn:hover, #service-form-btn:hover, .record-log-update-btn:hover, .record-log-delete-btn:hover, .submit-update-btn:hover {
     background-color: rgb(53, 52, 52);
     cursor: pointer;
 }
 
-#login-form button:focus, #create-new-btn:focus, #signup-submit-btn:focus, #service-form-btn:focus, .record-log-update-btn:focus, .record-log-delete-btn:focus {
+#login-form button:focus, #create-new-btn:focus, #signup-submit-btn:focus, #service-form-btn:focus, .record-log-update-btn:focus, .record-log-delete-btn:focus, .submit-update-btn:focus {
     background-color: rgb(243, 123, 67);
     color: black;
     outline: none;

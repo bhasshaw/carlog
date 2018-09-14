@@ -24,19 +24,19 @@ router.get('/posts/:username', jwtAuth, (req, res) => {
         });
 });
 
-// router.get('/post/:id',jwtAuth, (req, res) => {
-//     Service
-//         .findById(req.params.id)
-//         .then(post => res.json(post.serialize()))
-//         .catch(err => {
-//             console.error(err);
-//             res.status(500).json({ error: 'Something went wrong' });
-//         });
-// });
+router.get('/post/:id',jwtAuth, (req, res) => {
+    Service
+        .findById(req.params.id)
+        .then(post => res.json(post.serialize()))
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'Something went wrong' });
+        });
+});
   
 // POST
   
-router.post('/posts', (req, res) => {
+router.post('/posts', jwtAuth, (req, res) => {
     const requiredFields = ['username', 'date', 'description', 'miles', 'cost'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
@@ -91,7 +91,7 @@ router.put('/posts/:id', jwtAuth, (req, res) => {
 
 // DELETE
 
-router.delete('/posts/:id', (req, res) => {
+router.delete('/posts/:id', jwtAuth, (req, res) => {
   Service
         .findByIdAndRemove(req.params.id)
         .then(() => {
