@@ -4,13 +4,14 @@ function handlePage () {
     handleCreateNewButton();
     submitLogListener();
     getLogResults();
+    deleteLogListener();
 };
 
 // LANDING PAGE
 
-function getLogResults () {
+function getLogResults (username) {
     $.ajax({
-        url: '/api/service/posts',
+        url: '/api/service/posts/' + localStorage.getItem('username'),
         type: 'GET',
         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
         contentType: 'application/json'  
@@ -23,11 +24,12 @@ function getLogResults () {
 function displayResults (info) {
     $.each(info, function(index, value) {
         let html = `
-            <ul>
-                <li>${value.date}</li>
-                <li>${value.miles}</li>
-                <li>${value.description}</li>
-                <li>${value.cost}</li>
+            <ul class="record-log-list">
+                <li>Description: ${value.description}</li>
+                <li>Date: ${value.date}</li>
+                <li>Miles: ${value.miles}</li>
+                <li>Cost: $${value.cost}</li>
+                <button data="${value.id}" class="record-log-update-btn">Update</button><button data="${value.id}" class="record-log-delete-btn">Delete</button>
             </ul>
         `
         $('.record-log').append(html);
@@ -74,6 +76,7 @@ function submitLogListener () {
 
 function submitLog () {
     let logInfo = {
+        username: localStorage.getItem('username'), 
         date: $('#log-date').val(),
         description: $('#log-description').val(),
         miles: $('#log-miles').val(),
@@ -81,13 +84,34 @@ function submitLog () {
     }
     console.log(logInfo);
     $.ajax({
-        url: 'api/service/posts',
+        url: 'api/service/posts/',
         type: 'POST',
         data: JSON.stringify(logInfo),
         contentType: 'application/json'
     })
     .done(() => {
         window.location.href = 'home.html';
+    })
+    .fail( err => {
+        console.log('error: ', err.message);
+    })
+};
+
+function deleteLogListener () {
+    $(document).on('click','.record-log-delete-btn', function(event) {
+        let id = $(this).attr('data');
+        deleteLog(id);
+    });
+};
+
+function deleteLog (id) {
+    $.ajax({
+        url: 'api/service/posts/' + id,
+        type: 'DELETE',
+        contentType: 'application/json'          
+    })
+    .done(() => {
+        window.location.href = 'home.html'; 
     })
     .fail( err => {
         console.log('error: ', err.message);

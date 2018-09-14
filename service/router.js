@@ -12,7 +12,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // GET
 
-router.get('/:username', jwtAuth, (req, res) => {
+router.get('/posts/:username', jwtAuth, (req, res) => {
     Service
         .find({username: req.params.username}).sort({'date': -1})
         .then(posts => {
@@ -24,20 +24,20 @@ router.get('/:username', jwtAuth, (req, res) => {
         });
 });
 
-router.get('/:id',jwtAuth, (req, res) => {
-    Service
-        .findById(req.params.id)
-        .then(post => res.json(post.serialize()))
-        .catch(err => {
-            console.error(err);
-            res.status(500).json({ error: 'Something went wrong' });
-        });
-});
+// router.get('/post/:id',jwtAuth, (req, res) => {
+//     Service
+//         .findById(req.params.id)
+//         .then(post => res.json(post.serialize()))
+//         .catch(err => {
+//             console.error(err);
+//             res.status(500).json({ error: 'Something went wrong' });
+//         });
+// });
   
 // POST
   
 router.post('/posts', (req, res) => {
-    const requiredFields = ['date', 'description', 'miles', 'cost'];
+    const requiredFields = ['username', 'date', 'description', 'miles', 'cost'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
@@ -48,13 +48,7 @@ router.post('/posts', (req, res) => {
     }
 
     Service
-        .create({
-            date: req.body.date,
-            description: req.body.description,
-            miles: req.body.miles,
-            cost: req.body.cost,
-            username: req.body.username
-        })
+        .create(req.body)
         .then( serviceLog => res.status(201).json(serviceLog.serialize()))
         .catch(err => {
             console.error(err);
