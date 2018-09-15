@@ -2,6 +2,7 @@
 
 function handlePage () {
     handleCreateNewButton();
+    homeBtnListener();
     submitLogListener();
     getLogResults();
     deleteLogListener();
@@ -64,6 +65,14 @@ function createNewBtnListener () {
     $('#create-new-btn').click(function(event) {
         event.preventDefault();
         $('.record-log').html(createNewBtnTemplate);
+    });
+};
+
+// HOME BUTTON
+
+function homeBtnListener () {
+    $('.home-btn').click(function(event) {
+        window.location.href = 'home.html';
     });
 };
 
@@ -130,7 +139,7 @@ function createUpdateTemplate (value) {
     return `
         <form id="service-form">
             <label for="date">Date of Service</label>
-            <input id="log-date" type="date" value="${value.date}">
+            <input id="log-date" type="text" value="${value.date}">
             <label for="description">Describe Service</label>
             <input id="log-description" type="text" value="${value.description}">
             <label for="miles">Mileage</label>

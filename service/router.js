@@ -77,6 +77,7 @@ router.put('/post/:id', jwtAuth, (req, res) => {
     console.log(`Updating service item \`${req.params.id}\``);
 
     const toUpdate = {
+        id: req.body.id,
         date: req.body.date,
         description: req.body.description,
         miles: req.body.miles,
