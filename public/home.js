@@ -32,7 +32,7 @@ function displayResults (info) {
                 <li>Description: ${value.description}</li>
                 <li>Miles: ${value.miles}</li>
                 <li>Cost: $${value.cost}</li>
-                <button data="${value.id}" class="record-log-update-btn">Update</button><button data="${value.id}" class="record-log-delete-btn">Delete</button>
+                <button data="${value.id}" id="update" class="record-log-update-btn">Update</button><button data="${value.id}" id="delete" class="record-log-delete-btn">Delete</button>
             </ul>
         `
         $('.record-log').append(html);
@@ -93,7 +93,6 @@ function submitLog () {
         miles: $('.log-miles').val(),
         cost: $('.log-cost').val()
     }
-    console.log(logInfo);
     $.ajax({
         url: 'api/service/posts/',
         type: 'POST',
@@ -137,7 +136,7 @@ function deleteLog (id) {
 
 function createUpdateTemplate (value) {
     return `
-        <form class="service-form">
+        <form class="update-form">
             <label for="date">Date of Service</label>
             <input class="log-date" type="text" value="${value.date}">
             <label for="description">Describe Service</label>
@@ -189,7 +188,6 @@ function udpateLog (id) {
         miles: $('.log-miles').val(),
         cost: $('.log-cost').val()
     }
-
     $.ajax({
         url: 'api/service/post/'+ id,
         type: 'PUT',

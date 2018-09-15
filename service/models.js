@@ -8,7 +8,8 @@ const serviceSchema = mongoose.Schema({
         type: String
     },
     date: {
-        type: Date,
+        type: String,
+        default: Date.now,
         required: true
     },
     description: {
