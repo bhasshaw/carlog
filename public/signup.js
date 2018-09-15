@@ -7,7 +7,7 @@ function handleSignup () {
 };
 
 function signupListener () {
-    $('#signup-submit-btn').click(function(event) {
+    $('.signup-submit-btn').click(function(event) {
         event.preventDefault();
         signup();
     });
@@ -15,11 +15,11 @@ function signupListener () {
 
 function signup () {
     let signupInfo = {
-        username: $('#signup-username').val(),
-        password: $('#signup-password').val(),
-        year: $('#signup-year').val(),
-        make: $('#signup-make').val(),
-        model: $('#signup-model').val()
+        username: $('.signup-username').val(),
+        password: $('.signup-password').val(),
+        year: $('.signup-year').val(),
+        make: $('.signup-make').val(),
+        model: $('.signup-model').val()
     }
     $.ajax({
         url: '/api/users',

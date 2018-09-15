@@ -7,15 +7,15 @@ function handleLogIn () {
 };
 
 function logInListener () {
-    $('#login-submit-btn').click(function(event) {
+    $('.login-submit-btn').click(function(event) {
         event.preventDefault();
         logIn();
     });
 };
 
 function logIn () {
-    let username = $('#login-username').val();
-    let password = $('#login-password').val();
+    let username = $('.login-username').val();
+    let password = $('.login-password').val();
     logInRequest(username, password);
 };
 

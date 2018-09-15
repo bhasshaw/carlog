@@ -47,22 +47,22 @@ function handleCreateNewButton () {
 
 function createNewBtnTemplate () {
     return `
-        <form id="service-form">
+        <form class="service-form">
             <label for="date">Date of Service</label>
-            <input id="log-date" type="date">
+            <input class="log-date" type="date">
             <label for="description">Describe Service</label>
-            <input id="log-description" type="text">
+            <input class="log-description" type="text">
             <label for="miles">Mileage</label>
-            <input id="log-miles" type="text">
+            <input class="log-miles" type="text">
             <label for="cost">Cost</label>
-            <input id="log-cost" type="text">
-            <button id="service-form-btn" type="submit">Submit</button>
+            <input class="log-cost" type="text">
+            <button class="service-form-btn" type="submit">Submit</button>
         </form>
     `
 };
 
 function createNewBtnListener () {
-    $('#create-new-btn').click(function(event) {
+    $('.create-new-btn').click(function(event) {
         event.preventDefault();
         $('.record-log').html(createNewBtnTemplate);
     });
@@ -79,7 +79,7 @@ function homeBtnListener () {
 // SUBMIT NEW RECORD
 
 function submitLogListener () {
-    $(document).on('submit','#service-form', function(event) {
+    $(document).on('submit','.service-form', function(event) {
         event.preventDefault();
         submitLog();
     });
@@ -88,10 +88,10 @@ function submitLogListener () {
 function submitLog () {
     let logInfo = {
         username: localStorage.getItem('username'), 
-        date: $('#log-date').val(),
-        description: $('#log-description').val(),
-        miles: $('#log-miles').val(),
-        cost: $('#log-cost').val()
+        date: $('.log-date').val(),
+        description: $('.log-description').val(),
+        miles: $('.log-miles').val(),
+        cost: $('.log-cost').val()
     }
     console.log(logInfo);
     $.ajax({
@@ -137,15 +137,15 @@ function deleteLog (id) {
 
 function createUpdateTemplate (value) {
     return `
-        <form id="service-form">
+        <form class="service-form">
             <label for="date">Date of Service</label>
-            <input id="log-date" type="text" value="${value.date}">
+            <input class="log-date" type="text" value="${value.date}">
             <label for="description">Describe Service</label>
-            <input id="log-description" type="text" value="${value.description}">
+            <input class="log-description" type="text" value="${value.description}">
             <label for="miles">Mileage</label>
-            <input id="log-miles" type="text" value="${value.miles}">
+            <input class="log-miles" type="text" value="${value.miles}">
             <label for="cost">Cost</label>
-            <input id="log-cost" type="text" value="${value.cost}">
+            <input class="log-cost" type="text" value="${value.cost}">
             <button class="submit-update-btn" type="submit">Submit</button>
         </form>
     `
@@ -184,10 +184,10 @@ function updateLogListener () {
 function udpateLog (id) {
     let logInfo = {
         username: localStorage.getItem('username'), 
-        date: $('#log-date').val(),
-        description: $('#log-description').val(),
-        miles: $('#log-miles').val(),
-        cost: $('#log-cost').val()
+        date: $('.log-date').val(),
+        description: $('.log-description').val(),
+        miles: $('.log-miles').val(),
+        cost: $('.log-cost').val()
     }
 
     $.ajax({
