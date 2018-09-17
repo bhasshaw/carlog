@@ -60,7 +60,7 @@ router.post('/posts', jwtAuth, (req, res) => {
 // PUT
 
 router.put('/posts/:id', jwtAuth, (req, res) => {
-    const requiredFields = ['id', 'date', 'description', 'miles', 'cost'];
+    const requiredFields = ['date', 'description', 'miles', 'cost'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
@@ -69,11 +69,7 @@ router.put('/posts/:id', jwtAuth, (req, res) => {
         return res.status(400).send(message);
         }
     }
-    if (req.params.id !== req.body.id) {
-        const message = `Request path id (${req.params.id}) and request body id (${req.body.id}) must match`;
-        console.error(message);
-        return res.status(400).send(message);
-    }
+    
     console.log(`Updating service item \`${req.params.id}\``);
 
     const toUpdate = {
