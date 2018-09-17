@@ -27,11 +27,10 @@ function getLogResults (username) {
 function displayResults (info) {
     $.each(info, function(index, value) {
         let html = `
-            <ul class="record-log-list">
-                <li>Description: ${value.description}</li>
-                <li>Date: ${value.date}</li>
-                <li>Miles: ${value.miles}</li>
-                <li>Cost: $${value.cost}</li>
+            <ul class="record-log-list"> 
+                <li><strong class="strong">${value.description}</strong> on <strong class="strong">${value.date}</strong></li>
+                <li><strong class="strong">Mileage:</strong> ${value.miles}</li>
+                <li><strong class="strong">$${value.cost}</strong></li>
                 <button data="${value.id}" class="record-log-update-btn">Update</button>
                 <button data="${value.id}" class="record-log-delete-btn">Delete</button>
             </ul>
@@ -146,7 +145,7 @@ function createUpdateTemplate (value) {
             <input class="log-miles" type="text" value="${value.miles}">
             <label for="cost">Cost</label>
             <input class="log-cost" type="text" value="${value.cost}">
-            <button class="submit-update-btn" type="submit">Submit</button>
+            <button data="${value.id}" class="submit-update-btn" type="submit">Submit</button>
         </form>
     `
 };
@@ -175,14 +174,15 @@ function getLog (id) {
 };
 
 function updateLogListener () {
-    $(document).on('submit','.submit-update-btn', function(event) {
+    $(document).on('submit','.update-form', function(event) {
         event.preventDefault();
-        updateLog();
+        let id = $(this).attr('data');
+        updateLog(id);
     });
 };
 
 
-function udpateLog (id) {
+function updateLog (id) {
     let logInfo = {
         username: localStorage.getItem('username'), 
         date: $('.log-date').val(),
