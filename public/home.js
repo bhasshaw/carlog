@@ -28,11 +28,12 @@ function displayResults (info) {
     $.each(info, function(index, value) {
         let html = `
             <ul class="record-log-list">
-                <li>Date: ${value.date}</li>
                 <li>Description: ${value.description}</li>
+                <li>Date: ${value.date}</li>
                 <li>Miles: ${value.miles}</li>
                 <li>Cost: $${value.cost}</li>
-                <button data="${value.id}" id="update" class="record-log-update-btn">Update</button><button data="${value.id}" id="delete" class="record-log-delete-btn">Delete</button>
+                <button data="${value.id}" class="record-log-update-btn">Update</button>
+                <button data="${value.id}" class="record-log-delete-btn">Delete</button>
             </ul>
         `
         $('.record-log').append(html);
@@ -111,7 +112,7 @@ function submitLog () {
 // DELETE RECORD
 
 function deleteLogListener () {
-    $(document).on('click','.record-log-delete-btn', function(event) {
+    $(document).on('click', '.record-log-delete-btn', function() {
         let id = $(this).attr('data');
         deleteLog(id);
     });
@@ -151,7 +152,8 @@ function createUpdateTemplate (value) {
 };
 
 function updateBtnListener () {
-    $(document).on('click','.record-log-update-btn', function(event) {
+    $(document).on('click','.record-log-update-btn', function() {
+        event.preventDefault();
         let id = $(this).attr('data');
         getLog(id);
     });
@@ -189,7 +191,7 @@ function udpateLog (id) {
         cost: $('.log-cost').val()
     }
     $.ajax({
-        url: 'api/service/post/'+ id,
+        url: 'api/service/posts/'+ id,
         type: 'PUT',
         data: JSON.stringify(logInfo),
         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },

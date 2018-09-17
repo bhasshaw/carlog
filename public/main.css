@@ -5,7 +5,9 @@
   body {
         margin: 40px;
         font-family: 'Ubuntu', sans-serif;
-        background-color: rgb(243, 123, 67);
+        /* background-color: rgb(243, 123, 67); */
+        background-image: url("brushed_alu.png");
+        background-repeat: repeat;
         color: black;
   }
   
@@ -13,8 +15,7 @@
         max-width: 1080px;
         margin: 0 20px;
         display: grid;
-        grid-gap: 2px;
-
+        grid-gap: 4px;
   }
   
   @media screen and (min-width: 500px) {
@@ -47,6 +48,8 @@
   }
   
   .wrapper > * {
+        /* background-image: url("brushed_alu.png"); */
+        /* background-repeat: repeat; */
         background-color: white;
         color: black;
         padding: 20px;
@@ -70,8 +73,9 @@ input {
 }
 
 .header h1 {
-    font-size: 40px;
+    font-size: 45px;
     margin: 5px 0px;
+    font-family: 'Prosto One', 'Ubuntu', sans-serif;
 }
 
 .sidebar {
@@ -101,6 +105,7 @@ input {
     margin-top: 10px;
     background-color: black;
     color: white;
+    font-size: 15px;
 }
 
 .login-form button:hover, 
@@ -130,9 +135,13 @@ input {
     outline: none;
 }
 
+#service-scroll {
+    height: 500px;
+}
+
 .content {
     overflow: scroll;
-    height: 500px;
+    padding-top: 0px;
 }
 
 .content p {
@@ -171,6 +180,7 @@ input {
     margin-top: 10px;
     background-color: black;
     color: white;
+    font-size: 15px;
 }
 
 .service-form input, .update-form input {
@@ -192,6 +202,7 @@ input {
     margin-top: 10px;
     background-color: black;
     color: white;
+    font-size: 15px;
 }
 
 .record-log-list { 
@@ -207,17 +218,10 @@ input {
 }
 
 .record-log-update-btn, .record-log-delete-btn {
-    width: 48%;
+    width: 49%;
     height: 30px;
     margin-top: 10px;
     background-color: black;
     color: white;
-}
-
-#update {
-    margin-right: 1%;
-}
-
-#delete {
-    margin-left: 1%;
+    font-size: 15px;
 }

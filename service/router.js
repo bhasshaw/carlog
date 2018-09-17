@@ -59,7 +59,7 @@ router.post('/posts', jwtAuth, (req, res) => {
 
 // PUT
 
-router.put('/post/:id', jwtAuth, (req, res) => {
+router.put('/posts/:id', jwtAuth, (req, res) => {
     const requiredFields = ['id', 'date', 'description', 'miles', 'cost'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
