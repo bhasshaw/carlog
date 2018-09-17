@@ -152,7 +152,6 @@ function createUpdateTemplate (value) {
 
 function updateBtnListener () {
     $(document).on('click','.record-log-update-btn', function() {
-        event.preventDefault();
         let id = $(this).attr('data');
         getLog(id);
     });
@@ -176,7 +175,7 @@ function getLog (id) {
 function updateLogListener () {
     $(document).on('submit','.update-form', function(event) {
         event.preventDefault();
-        let id = $(this).attr('data');
+        let id = $('.submit-update-btn').attr('data');
         updateLog(id);
     });
 };
@@ -191,7 +190,7 @@ function updateLog (id) {
         cost: $('.log-cost').val()
     }
     $.ajax({
-        url: 'api/service/posts/'+ id,
+        url: 'api/service/posts/' + id,
         type: 'PUT',
         data: JSON.stringify(logInfo),
         headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
