@@ -5,6 +5,7 @@ function handlePage () {
     homeBtnListener();
     submitLogListener();
     getLogResults();
+    getCarResults();
     deleteLogListener();
     updateBtnListener();
     updateLogListener();
@@ -12,7 +13,25 @@ function handlePage () {
 
 // LANDING PAGE
 
-function getLogResults (username) {
+function getCarResults () {
+    $.ajax({
+        url: '/api/users/' + localStorage.getItem('username'),
+        type: 'GET',
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('authToken') },
+        contentType: 'application/json'  
+    })
+    .done(response => {
+        displayCarInfo(response)
+    })
+};
+
+function displayCarInfo (car) {
+    $('#year').text(car[0].year);
+    $('#make').text(car[0].make);
+    $('#model').text(car[0].model);
+}
+
+function getLogResults () {
     $.ajax({
         url: '/api/service/posts/' + localStorage.getItem('username'),
         type: 'GET',
@@ -25,7 +44,9 @@ function getLogResults (username) {
 };
 
 function displayResults (info) {
+    let total = 0;
     $.each(info, function(index, value) {
+        total += value.cost;
         let html = `
             <ul class="record-log-list"> 
                 <li><strong class="strong">${value.description}</strong> on <strong class="strong">${value.date}</strong></li>
@@ -37,6 +58,7 @@ function displayResults (info) {
         `
         $('.record-log').append(html);
     })
+    $('#service-total').html(total);
 };
 
 // CREATE NEW RECORD
