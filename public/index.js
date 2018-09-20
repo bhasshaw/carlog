@@ -36,9 +36,8 @@ function logInRequest (username, password) {
         window.location.href = 'home.html';
     })
     .fail(function(err) {
-        console.log('error')
         if (err.status === 401) {
-            $('.login-error').html('Username or Password is incorrect');
+            $('.login-error').html('Username or password was incorrect.');
         }
     })
 };

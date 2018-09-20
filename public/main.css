@@ -26,7 +26,7 @@
   
     .content {
         float: right;
-        width: 50%; 
+        width: 50%;
     }
 
     .information {
@@ -142,15 +142,6 @@ input {
 
 .content {
     overflow: scroll;
-    padding-top: 0px;
-    /* background-image: url("black-and-white-close-up-equipment-210881.jpg"); */
-    /* background-size: cover; */
-    /* background-position-y: -100px; */
-    
-}
-
-.content p {
-    font-size: 25px;
 }
 
 .content h4 {
@@ -220,28 +211,32 @@ input {
 
 .record-log-list { 
     border: 2px black solid;
-    padding-top: 15px;
     padding-bottom: 10px;
-    list-style: none;
-    padding-right: 32px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 15px;
     box-shadow: 8px 8px 6px grey;
+    background-image: url("brushed_alu.png");
+    background-repeat: repeat;
 }
 
-.record-log-list li {
-    margin-bottom: 5px;
+.record-log-list h3 {
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.record-log-list p {
+    text-align: center;
 }
 
 .record-log-update-btn, .record-log-delete-btn {
-    width: 49%;
+    width:100%;
     height: 30px;
     margin-top: 10px;
     background-color: black;
     color: white;
     font-size: 15px;
-}
-
-.strong {
-    font-size: 28px;
 }
 
 .icons-container {
@@ -256,4 +251,18 @@ input {
 .instagram-img {
     height: 45px;
     width: 45px;
+}
+
+.vehicle-cost {
+    text-align: center;
+}
+
+.vehicle-cost h2 {
+    margin-bottom: -18px;
+}
+
+.login-error {
+    font-size: 15px;
+    color: red;
+    margin-top: 10px;
 }

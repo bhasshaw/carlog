@@ -30,8 +30,8 @@ function signup () {
     .done(() => {
         window.location.href = 'index.html';
     })
-    .fail( err => {
-        console.log('error: ', err.message);
+    .fail(function(err) {
+        $('.login-error').html('All sections are required.');
     })
 };
 

@@ -41,6 +41,9 @@ function getLogResults () {
     .done(response => {
         displayResults(response)
     })
+    .fail( err => {
+        console.log('Error: ', err.message);
+    })
 };
 
 function displayResults (info) {
@@ -48,13 +51,20 @@ function displayResults (info) {
     $.each(info, function(index, value) {
         total += value.cost;
         let html = `
-            <ul class="record-log-list"> 
-                <li><strong class="strong">${value.description}</strong> on <strong class="strong">${value.date}</strong></li>
-                <li><strong class="strong">Mileage:</strong> ${value.miles}</li>
-                <li><strong class="strong">$${value.cost}</strong></li>
-                <button data="${value.id}" class="record-log-update-btn">Update</button>
-                <button data="${value.id}" class="record-log-delete-btn">Delete</button>
-            </ul>
+            <div class="record-log-list">
+                    <div>
+                        <h3>Description</h3>
+                        <p>${value.description}</p>
+                        <h3>Date</h3>
+                        <p>${value.date}</p>
+                        <h3>Mileage</h3>
+                        <p>${value.miles}</p>
+                        <h3>Cost</h3>
+                        <p>$${value.cost}</p>
+                    </div>
+                    <button data="${value.id}" class="record-log-update-btn">Update</button>
+                    <button data="${value.id}" class="record-log-delete-btn">Delete</button>
+            <div>
         `
         $('.record-log').append(html);
     })
@@ -126,7 +136,7 @@ function submitLog () {
         window.location.href = 'home.html';
     })
     .fail( err => {
-        console.log('error: ', err.message);
+        console.log('Error: ', err.message);
     })
 };
 
@@ -150,7 +160,7 @@ function deleteLog (id) {
         window.location.href = 'home.html'; 
     })
     .fail( err => {
-        console.log('error: ', err.message);
+        console.log('Error: ', err.message);
     })
 };
 
@@ -190,7 +200,7 @@ function getLog (id) {
         $('.record-log').html(createUpdateTemplate(value));
     })
     .fail( err => {
-        console.log('error: ', err.message);
+        console.log('Error: ', err.message);
     })
 };
 
@@ -222,7 +232,7 @@ function updateLog (id) {
         window.location.href = 'home.html';
     })
     .fail( err => {
-        console.log('error: ', err.message);
+        console.log('Error: ', err.message);
     })
 };
 
