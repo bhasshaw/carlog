@@ -12,29 +12,23 @@
     </head>
     <body>
         <div class="wrapper">
-            <header class="header">
+            <header class="header" role="banner">
                 <h1>CarLog</h1>
             </header>
-            <aside class="sidebar">
+            <aside class="sidebar" role="navigation">
                 <h2>Login</h2>
                 <form class="login-form" action="login">
-                    <input class="login-username" type="username" placeholder="Username">
-                    <input class="login-password" type="password" placeholder="Password">
+                    <input class="login-username" type="username" placeholder="Username" name="username">
+                    <input class="login-password" type="password" placeholder="Password" name="password">
                     <button class="login-submit-btn">Submit</button>
                     <div class="login-error"></div>
                 </form>
             </aside>
-            <article class="content">
+            <article class="content" role="main">
                 <p>Remember when you got you're last oil change? What about a tire rotation? Most peope don't, and that's where CarLog come in!</p>
-                <!-- <h4>Steps</h4>
-                <ol>
-                    <li>Sign Up</li>
-                    <li>Add vehicle services you recieve</li>
-                    <li>Keep for future</li>
-                </ol> -->
                 <h4>Don't have an account? <a href="signup.html">Sign Up</a></h4>
             </article>
-            <footer class="footer">
+            <footer class="footer" role="contentinfo">
                 <div class="created-container">
                     <a>CarLog created by Bryce Hasshaw</a>
                 </div>

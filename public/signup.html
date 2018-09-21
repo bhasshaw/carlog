@@ -12,35 +12,35 @@
     </head>
     <body>
         <div class="wrapper">
-            <header class="header">
+            <header class="header" role="banner">
                 <h1>CarLog</h1>
             </header>
-            <aside class="sidebar">
+            <aside class="sidebar" role="navigation">
                 <p>Already have an account? <a href="index.html">Login</a></p>
                 <div class="login-error"></div>
             </aside>
-            <article class="content">
+            <article class="content" role="main">
                 <form class="signup-form" action="signup">
-                    <section class="information">
+                    <section class="information" role="region">
                         <h3>Create Login</h3>
                         <label for="username">Username</label>
-                        <input class="signup-username" type="text">
+                        <input id="username" class="signup-username" type="text" name="textfield">
                         <label for="password">Password</label>
-                        <input class="signup-password" type="password">
+                        <input id="password" class="signup-password" type="password" name="textfield">
                     </section>
-                    <section class="information">
+                    <section class="information" role="region">
                         <h3>Vehicle Info</h3>
                         <label for="year">Year</label>
-                        <input class="signup-year" type="text">
+                        <input id="year" class="signup-year" type="text" name="textfield">
                         <label for="make">Make</label>
-                        <input class="signup-make" type="text">
+                        <input id="make" class="signup-make" type="text" name="textfield">
                         <label for="model">Model</label>
-                        <input class="signup-model" type="text">
+                        <input id="model" class="signup-model" type="text" name="textfield">
                     </section>
                     <button class="signup-submit-btn">Submit</button>
                 </form>
             </article>
-            <footer class="footer">
+            <footer class="footer" role="contentinfo">
                 <div class="created-container">
                     <a>CarLog created by Bryce Hasshaw</a>
                 </div>
