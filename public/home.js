@@ -52,18 +52,18 @@ function displayResults (info) {
         total += value.cost;
         let html = `
             <div class="record-log-list">
-                    <div>
-                        <h3>Description</h3>
-                        <p>${value.description}</p>
-                        <h3>Date</h3>
-                        <p>${value.date}</p>
-                        <h3>Mileage</h3>
-                        <p>${value.miles}</p>
-                        <h3>Cost</h3>
-                        <p>$${value.cost}</p>
-                    </div>
-                    <button data="${value.id}" class="record-log-update-btn">Update</button>
-                    <button data="${value.id}" class="record-log-delete-btn">Delete</button>
+                <div>
+                    <h3>Description</h3>
+                    <p>${value.description}</p>
+                    <h3>Date</h3>
+                    <p>${value.date}</p>
+                    <h3>Mileage</h3>
+                    <p>${value.miles}</p>                        
+                    <h3>Cost</h3>
+                    <p>$${value.cost}</p>
+                </div>
+                <button data="${value.id}" class="record-log-update-btn">Update</button>
+                <button data="${value.id}" class="record-log-delete-btn">Delete</button>
             <div>
         `
         $('.record-log').append(html);

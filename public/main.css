@@ -255,6 +255,7 @@ input {
 
 .vehicle-cost {
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .vehicle-cost h2 {
