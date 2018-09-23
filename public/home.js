@@ -79,7 +79,7 @@ function handleCreateNewButton () {
 
 function createNewBtnTemplate () {
     return `
-        <form class="service-form">
+        <form role="form" class="service-form">
             <label for="date">Date of Service</label>
             <input class="log-date" type="date">
             <label for="description">Describe Service</label>
@@ -168,7 +168,7 @@ function deleteLog (id) {
 
 function createUpdateTemplate (value) {
     return `
-        <form class="update-form">
+        <form role="form" class="update-form">
             <label for="date">Date of Service</label>
             <input class="log-date" type="text" value="${value.date}">
             <label for="description">Describe Service</label>
