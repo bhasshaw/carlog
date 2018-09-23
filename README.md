@@ -6,7 +6,6 @@ An application used to keep track of maintenance that has been done on your vehi
 https://hidden-hamlet-51955.herokuapp.com/
 
 ## Screenshots
-### Login
 <img src="/views/login.png">
 <img src="/views/signup.png">
 <img src="/views/service.png">
