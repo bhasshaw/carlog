@@ -64,13 +64,13 @@ input {
     display: block;
 }
 
-.footer a {
+/* .footer a {
     font-size: 18px;
-}
+} */
 
-.footer div {
+/* .footer div {
     display: inline;
-}
+} */
 
 .header h1 {
     font-size: 45px;
@@ -241,16 +241,19 @@ input {
 
 .icons-container {
     float: right;
+    
 }
 
 .facebook-img {
     height: 45px;
     width: 45px;
+    float: right;
 }
 
 .instagram-img {
     height: 45px;
     width: 45px;
+    float: right;
 }
 
 .vehicle-cost {
@@ -267,3 +270,9 @@ input {
     color: red;
     margin-top: 10px;
 }
+
+.created-container {
+    display: inline;
+    font-size: 15px;
+}
+
