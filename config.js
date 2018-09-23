@@ -1,5 +1,5 @@
 'use strict';
-exports.DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/carlog';
+exports.DATABASE_URL = process.env.DATABASE_URL || 'mongodb://newuser:newuser1@ds161913.mlab.com:61913/carlog';
 exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || 'mongodb://localhost/test-carlog';
 exports.PORT = process.env.PORT || 8080;
 exports.JWT_SECRET = process.env.JWT_SECRET;
