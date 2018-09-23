@@ -8,13 +8,9 @@ https://hidden-hamlet-51955.herokuapp.com/
 ## Screenshots
 ### Login
 <img src="/views/login.png">
-### Signup
 <img src="/views/signup.png">
-### Service Record
 <img src="/views/service.png">
-### Scrolling
 <img src="/views/scrolling.png">
-### Adding New
 <img src="/views/addservice.png">
 
 ## Technologies Used
