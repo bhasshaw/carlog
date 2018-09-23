@@ -5,6 +5,9 @@ An application used to keep track of maintenance that has been done on your vehi
 ## Demo 
 https://hidden-hamlet-51955.herokuapp.com/
 
+## Screenshots
+<img src="/views/login.png">
+
 ## Technologies Used
 
 HTML, CSS, JavaScript, jQuery, Node.js, MongoDB, Mongoose, Chai, Mocha, Express, Heroku, REST API's
