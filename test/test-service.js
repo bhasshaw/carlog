@@ -63,21 +63,6 @@ describe('Service', function () {
             })    
     });
 
-    it('should delete items on DELETE', function () {
-        return chai
-            .request(app)
-            .get('/api/service/posts/testuser')
-            .set('Authorization', `Bearer ${token}`)
-            .then(function(res) {
-                return chai.request(app)
-                    .delete(`/api/service/posts/${res.body[0].id}`)
-                    .set('Authorization', `Bearer ${token}`)
-            }) 
-            .then(function(res) {
-                expect(res).to.have.status(204)
-            });   
-    });
-
     it('should update items on PUT', function () {
         const updateData = {
             username: "testuser",
@@ -95,6 +80,22 @@ describe('Service', function () {
                     .put(`/api/service/posts/${res.body[0].id}`)
                     .set('Authorization', `Bearer ${token}`)
                     .send(updateData)
+            }) 
+            .then(function(res) {
+                expect(res).to.have.status(204)
+            }); 
+
+    });
+
+    it('should delete items on DELETE', function () {
+        return chai
+            .request(app)
+            .get('/api/service/posts/testuser')
+            .set('Authorization', `Bearer ${token}`)
+            .then(function(res) {
+                return chai.request(app)
+                    .delete(`/api/service/posts/${res.body[0].id}`)
+                    .set('Authorization', `Bearer ${token}`)
             }) 
             .then(function(res) {
                 expect(res).to.have.status(204)
