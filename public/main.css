@@ -3,7 +3,7 @@
   }
   
   body {
-        margin: 40px;
+        /* margin: 40px; */
         font-family: 'Ubuntu', sans-serif;
         background-image: url("brushed_alu.png");
         background-repeat: repeat;
@@ -11,8 +11,8 @@
   }
   
   .wrapper {
-        max-width: 1600px;
-        margin: 0 20px;
+        /* max-width: 1600px; */
+        /* margin: 0 20px; */
         display: grid;
         grid-gap: 4px;
   }
