@@ -1,7 +1,5 @@
 'use strict';
 
-// SIGNUP
-
 function handleSignup () {
     signupListener();
 };

@@ -1,7 +1,5 @@
 'use strict';
 
-// LOGIN
-
 function handleLogIn () {
     logInListener();
 };
